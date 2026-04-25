@@ -1,21 +1,31 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SiGithub, SiX } from "react-icons/si";
 import { FaLinkedin, FaEnvelope } from "react-icons/fa";
 
+const EMAIL = "xojoshirishabh@gmail.com";
+
 const socials = [
-  { label: "GitHub",   href: "https://github.com/rishabhzenra",                   Icon: SiGithub   },
-  { label: "LinkedIn", href: "https://linkedin.com/in/rishabh-joshi-6924a8354",   Icon: FaLinkedin },
-  { label: "Twitter",  href: "https://twitter.com/rishabhjoshi",                  Icon: SiX        },
-  { label: "Email",    href: "mailto:xojoshirishabh@gmail.com?subject=Hi%20Let's%20Connect&body=Hi%2C%20let's%20connect!",                   Icon: FaEnvelope },
+  { label: "GitHub",   href: "https://github.com/rishabhzenra",                 Icon: SiGithub   },
+  { label: "LinkedIn", href: "https://linkedin.com/in/rishabh-joshi-6924a8354", Icon: FaLinkedin },
+  { label: "Twitter",  href: "https://twitter.com/rishabhjoshi",                Icon: SiX        },
+  { label: "Email",    href: null,                                               Icon: FaEnvelope },
 ];
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const wrapRef    = useRef<HTMLDivElement>(null);
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(EMAIL).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -85,21 +95,39 @@ export default function Hero() {
         </div>
 
         {/* Socials */}
-        <div className="reveal" style={{ display: "flex", alignItems: "center", gap: 14, marginTop: -36, opacity: 0 }}>
-          {socials.map(({ label, href, Icon }) => (
-            <a
-              key={label}
-              href={href}
-              target={href.startsWith("mailto:") ? "_self" : "_blank"}
-              rel="noopener noreferrer"
-              title={label}
-              style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, borderRadius: 10, border: "1px solid rgba(255,255,255,0.28)", color: "#ffffff", textDecoration: "none", opacity: 0.6, transition: "opacity 0.18s, border-color 0.18s, background 0.18s" }}
-              onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.opacity = "1"; el.style.borderColor = "rgba(255,255,255,0.55)"; el.style.background = "rgba(255,255,255,0.07)"; }}
-              onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.opacity = "0.6"; el.style.borderColor = "rgba(255,255,255,0.28)"; el.style.background = "transparent"; }}
-            >
-              <Icon size={16} />
-            </a>
-          ))}
+        <div className="reveal" style={{ display: "flex", alignItems: "center", gap: 14, marginTop: -36, opacity: 0, position: "relative" }}>
+          {socials.map(({ label, href, Icon }) =>
+            href === null ? (
+              <button
+                key={label}
+                onClick={copyEmail}
+                title="Copy email"
+                style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, borderRadius: 10, border: "1px solid rgba(255,255,255,0.28)", color: "#ffffff", background: "transparent", cursor: "pointer", opacity: 0.6, transition: "opacity 0.18s, border-color 0.18s, background 0.18s" }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLButtonElement; el.style.opacity = "1"; el.style.borderColor = "rgba(255,255,255,0.55)"; el.style.background = "rgba(255,255,255,0.07)"; }}
+                onMouseLeave={e => { const el = e.currentTarget as HTMLButtonElement; el.style.opacity = "0.6"; el.style.borderColor = "rgba(255,255,255,0.28)"; el.style.background = "transparent"; }}
+              >
+                <Icon size={16} />
+              </button>
+            ) : (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={label}
+                style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, borderRadius: 10, border: "1px solid rgba(255,255,255,0.28)", color: "#ffffff", textDecoration: "none", opacity: 0.6, transition: "opacity 0.18s, border-color 0.18s, background 0.18s" }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.opacity = "1"; el.style.borderColor = "rgba(255,255,255,0.55)"; el.style.background = "rgba(255,255,255,0.07)"; }}
+                onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.opacity = "0.6"; el.style.borderColor = "rgba(255,255,255,0.28)"; el.style.background = "transparent"; }}
+              >
+                <Icon size={16} />
+              </a>
+            )
+          )}
+          {copied && (
+            <span style={{ position: "absolute", left: 134, top: -32, fontSize: 12, fontWeight: 600, color: "#4ade80", background: "rgba(0,0,0,0.7)", padding: "4px 10px", borderRadius: 6, whiteSpace: "nowrap" }}>
+              Email copied!
+            </span>
+          )}
         </div>
 
 

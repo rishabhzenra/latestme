@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SiGithub, SiX } from "react-icons/si";
+import { SiGithub } from "react-icons/si";
 import { FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const EMAIL = "xojoshirishabh@gmail.com";
@@ -11,7 +11,6 @@ const EMAIL = "xojoshirishabh@gmail.com";
 const socials = [
   { label: "GitHub",   href: "https://github.com/rishabhzenra",                 Icon: SiGithub   },
   { label: "LinkedIn", href: "https://linkedin.com/in/rishabh-joshi-6924a8354", Icon: FaLinkedin },
-  { label: "Twitter",  href: "https://twitter.com/rishabhjoshi",                Icon: SiX        },
   { label: "Email",    href: null,                                               Icon: FaEnvelope },
 ];
 

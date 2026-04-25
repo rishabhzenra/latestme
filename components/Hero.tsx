@@ -10,7 +10,7 @@ const socials = [
   { label: "GitHub",   href: "https://github.com/rishabhzenra",                   Icon: SiGithub   },
   { label: "LinkedIn", href: "https://linkedin.com/in/rishabh-joshi-6924a8354",   Icon: FaLinkedin },
   { label: "Twitter",  href: "https://twitter.com/rishabhjoshi",                  Icon: SiX        },
-  { label: "Email",    href: "mailto:xojoshirishabh@gmail.com",                   Icon: FaEnvelope },
+  { label: "Email",    href: "mailto:xojoshirishabh@gmail.com?subject=Hi%20Let's%20Connect&body=Hi%2C%20let's%20connect!",                   Icon: FaEnvelope },
 ];
 
 export default function Hero() {

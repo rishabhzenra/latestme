@@ -81,7 +81,7 @@ export default function Hero() {
         {/* Available line */}
         <div className="reveal" style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 32, marginBottom: 52, opacity: 0 }}>
           <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#22C55E", boxShadow: "0 0 10px rgba(34,197,94,0.8)", flexShrink: 0 }} className="pulse-dot" />
-          <a href="https://backlinkos.io" target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: "#4ade80", fontWeight: 500, textDecoration: "none" }}>Currently building BacklinkOS · open to new roles</a>
+          <a href="https://backlinkos.io" target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: "#4ade80", fontWeight: 500, textDecoration: "none" }}>Available to solve your problems</a>
         </div>
 
         {/* Socials */}

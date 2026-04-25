@@ -35,7 +35,7 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", paddingTop: 60, zIndex: 1 }}>
-      <div style={{ position: "absolute", top: "20%", left: "10%", width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(124,111,234,0.07) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(40px)" }} />
+      <div style={{ position: "absolute", top: "20%", left: "10%", width: "min(500px, 90vw)", height: "min(500px, 90vw)", borderRadius: "50%", background: "radial-gradient(circle, rgba(124,111,234,0.07) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(40px)" }} />
 
       <div ref={wrapRef} className="hero-wrap" style={{ maxWidth: 860, margin: "0 auto", padding: "0 48px", width: "100%" }}>
 
@@ -90,7 +90,7 @@ export default function Hero() {
             <a
               key={label}
               href={href}
-              target="_blank"
+              target={href.startsWith("mailto:") ? "_self" : "_blank"}
               rel="noopener noreferrer"
               title={label}
               style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, borderRadius: 10, border: "1px solid rgba(255,255,255,0.28)", color: "#ffffff", textDecoration: "none", opacity: 0.6, transition: "opacity 0.18s, border-color 0.18s, background 0.18s" }}

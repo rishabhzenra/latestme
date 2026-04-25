@@ -82,14 +82,14 @@ export default function Nav() {
         {/* Desktop CTA */}
         <div className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
           <a
-            href="/resume.pdf"
+            href="/resumemain.pdf"
             download
             style={{ height: 34, display: "inline-flex", alignItems: "center", gap: 7, padding: "0 16px", fontSize: 13, fontWeight: 600, color: "#0a0a0e", borderRadius: 8, background: "#ffffff", whiteSpace: "nowrap", textDecoration: "none", transition: "opacity 0.15s" }}
             onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.opacity = "0.88"}
             onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.opacity = "1"}
           >
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-            View Resume
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            Download Resume
           </a>
         </div>
 
@@ -111,7 +111,7 @@ export default function Nav() {
               style={{ padding: "12px 8px", fontSize: 15, fontWeight: activeId === l.id ? 700 : 400, color: activeId === l.id ? "#E8E6F0" : "#6B6585", textDecoration: "none", borderBottom: "1px solid rgba(255,255,255,0.05)" }}
             >{l.label}</a>
           ))}
-          <a href="/resume.pdf" download
+          <a href="/resumemain.pdf" download
             style={{ marginTop: 12, height: 42, borderRadius: 8, background: "#ffffff", color: "#0a0a0e", fontSize: 14, fontWeight: 700, border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}
           >Resume</a>
         </div>
